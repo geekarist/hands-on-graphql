@@ -4,7 +4,7 @@
   "description": "Build your first graphQL runtime step by step !",
   "main": "index.js",
   "scripts": {
-    "watch" : "node server.js --watch",
+    "watch": "nodemon $NODE_DEBUG_OPTION server.js --harmony",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,9 +24,11 @@
   "dependencies": {
     "express": "^4.16.0",
     "express-graphql": "^0.6.11",
-    "graphql": "^0.11.4"
+    "graphql": "^0.11.4",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "eslint": "^4.7.2"
+    "eslint": "^4.7.2",
+    "nodemon": "^1.12.1"
   }
 }
