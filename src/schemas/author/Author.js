@@ -29,7 +29,7 @@ const AuthorType = new GraphQLObjectType({
     firstName : {
       type : GraphQLString,
       resolve : (root) => {
-        return root.first_name;
+        return root.firstName;
       },
     },
     lastName : {

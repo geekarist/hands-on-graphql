@@ -1,7 +1,7 @@
 const books = [
   {
     id: 1,
-    title: "The Shinning",
+    title: "The Shining",
     author_id: 1,
     year: 1977,
     likes: 12000
