@@ -1,17 +1,17 @@
 const authors = [
   {
     id: 1,
-    first_name: "Stephen",
+    firstName: "Stephen",
     lastName: "King",
   },
   {
     id : 2,
-    first_name: "Dan",
+    firstName: "Dan",
     lastName: "Brown"
   },
   {
     id : 3,
-    first_name: "Bernard",
+    firstName: "Bernard",
     lastName: "Werber"
   },
 ];
