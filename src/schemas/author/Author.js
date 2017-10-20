@@ -6,15 +6,19 @@ const {
   GraphQLNonNull,
 } = require("graphql");
 
-const {getAuthorById} = require("./author.client");
+const {getAuthorById, getAuthorByLastName} = require("./author.client");
 const {getBooksByAuthor} = require("../book/book.client");
 const {type : BookType} = require("../book/Book");
 
 const AuthorArgs = {
   id : {
     name : "Author id",
-    type : new GraphQLNonNull(GraphQLInt),
+    type : GraphQLInt,
   },
+  lastName : {
+    name : "Author lastName",
+    type : GraphQLString,
+  }
 };
 
 const AuthorType = new GraphQLObjectType({
@@ -44,7 +48,6 @@ const AuthorType = new GraphQLObjectType({
     popularity : {
       type : GraphQLInt,
       resolve : (author, args) => {
-
       }
     },
   }),
@@ -54,7 +57,10 @@ module.exports = {
   type : AuthorType,
   args : AuthorArgs,
   resolve : (root, args, context) => {
-    return getAuthorById(args.id);
+    if (args.id) {
+      return getAuthorById(args.id);
+    }
+    return getAuthorByLastName(args.lastName)
   },
 };
 

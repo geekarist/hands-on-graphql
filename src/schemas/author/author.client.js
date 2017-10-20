@@ -10,7 +10,12 @@ function getAuthorById(id) {
   return find(authors, author => author.id === id);
 }
 
+function getAuthorByLastName(lastName) {
+  return find(authors, author => author.lastName === lastName);
+}
+
 module.exports = {
   getAllAuthors,
   getAuthorById,
+  getAuthorByLastName,
 };
