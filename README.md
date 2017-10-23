@@ -20,3 +20,7 @@ Build your first graphQL runtime step by step !
 ## Partie 2 : GraphQL côté serveur
 
 ## Partie 3 : Hands-on
+
+## Cheat sheet
+
+![GraphQL Cheat Sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png)
