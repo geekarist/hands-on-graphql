@@ -1,21 +1,27 @@
 "use strict";
-const {find} = require("lodash");
-const authors = require("../../documents/authors");
+const {DB} = require("../../db");
 
 function getAllAuthors() {
-  return authors;
+  return DB.authors.find();
 }
 
 function getAuthorById(id) {
-  return find(authors, author => author.id === id);
+  return DB.authors.findOne({id : id});
 }
 
 function getAuthorByLastName(lastName) {
-  return find(authors, author => author.lastName === lastName);
+  return DB.authors.findOne({lastName : lastName});
+}
+
+function updateAuthorLastName(id, newLastName) {
+  const author = DB.authors.findOne({id : id});
+  author.lastName = newLastName;
+  return DB.authors.update(author);
 }
 
 module.exports = {
   getAllAuthors,
   getAuthorById,
   getAuthorByLastName,
+  updateAuthorLastName,
 };

@@ -2,6 +2,9 @@ const {
   GraphQLList,
   GraphQLObjectType,
   GraphQLSchema,
+  GraphQLInt,
+  GraphQLNonNull,
+  GraphQLString,
 } = require("graphql");
 
 const Author = require("./author/Author");
@@ -20,6 +23,27 @@ const QueryType = new GraphQLObjectType({
   }),
 });
 
+const MutationType = new GraphQLObjectType({
+  name : "Mutation",
+  fields : () => ({
+    updateAuthorLastName : {
+      type : Author.type,
+      args : {
+        id : {
+          type : new GraphQLNonNull(GraphQLInt),
+        },
+        lastName : {
+          type : new GraphQLNonNull(GraphQLString),
+        },
+      },
+      resolve : (value, {id, lastName}) => {
+        return authorClient.updateAuthorLastName(id, lastName);
+      }
+    }
+  }),
+});
+
 module.exports = new GraphQLSchema({
   query : QueryType,
+  mutation : MutationType
 });

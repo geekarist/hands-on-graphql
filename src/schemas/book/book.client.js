@@ -1,17 +1,16 @@
 "use strict";
-const {find} = require("lodash");
-const books = require("../../documents/books");
+const {DB} = require("../../db");
 
 function getAllBooks() {
-  return books;
+  return DB.books.find();
 }
 
 function getBookById(bookId) {
-  return find(books, book => book.id === bookId);
+  return DB.books.findOne({id : bookId});
 }
 
 function getBooksByAuthor(authorId) {
-  return books.filter(book => book.author_id === authorId);
+  return DB.books.find({author_id : authorId});
 }
 
 module.exports = {
