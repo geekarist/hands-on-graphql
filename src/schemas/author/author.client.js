@@ -14,7 +14,7 @@ function getAuthorByLastName(lastName) {
 }
 
 function updateAuthorLastName(id, newLastName) {
-  const author = DB.authors.findOne({id : id});
+  let author = DB.authors.findOne({id : id});
   author.lastName = newLastName;
   return DB.authors.update(author);
 }
