@@ -16,21 +16,15 @@ const BookArgs = {
 
 const BookType = new GraphQLObjectType({
   name : "Book",
-  fields : () => {
-    const Author = require("../author/Author");
-    return {
-      id : {type : GraphQLInt},
-      title : {type : GraphQLString},
-      year : {type : GraphQLInt},
-      likes : {type : GraphQLInt},
-      author : {
-        type : Author.type,
-        resolve : (book, args, context) => {
-          return Author.resolve(null, {id : book.author_id});
-        },
-      },
-    };
-  },
+  fields : () => ({
+    title : {
+      type : GraphQLString,
+      resolve(book){
+        return book.title;
+      }
+    },
+    year : {type : GraphQLInt}, // resolve non spécifié équivaut à l'écriture du dessus (book.year)
+  }),
 });
 
 module.exports = {

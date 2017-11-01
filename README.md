@@ -20,7 +20,7 @@ Build your first graphQL runtime step by step !
 ### 1.Création d'une ressource simple
 _Checkout la branche question-1._
 
-But: Créer un service graphQL qui répondra à la requête suivante:
+**But**: Créer un service graphQL qui répondra à la requête suivante:
 ```
 query {
   user {
@@ -41,7 +41,7 @@ et qui donnera la réponse suivante (statique):
 }
 ```
 
-Etapes:
+**Etapes:**
 1. Créer le schéma graphql à l'aide de la méthode [GraphQLSchema](http://graphql.org/graphql-js/type/#graphqlschema)
 2. Créer la ressource principale pour les requêtes "GET": Query
 3. Créer la ressource User:
@@ -54,6 +54,23 @@ type User {
 Rappel: pour cette question les resolveurs retourneront une valeur en dur dans le code.
 
 _Solution disponible sur la branche solutions/question-1_
+
+### 2.Création d'une ressource dynamique
+Pour la suite du hands-on, une base de données in-memory sera utilisée, [lokijs](http://lokijs.org/).
+L'initialisation de deux collections est déjà implémentée et les méthodes utiles pour les manipuler sont diponibles sur la [Documentation de lokijs](https://rawgit.com/techfort/LokiJS/master/jsdoc/Collection.html)
+
+**But:** Créer un service graphQL qui puisse répondre à cette requête:
+```
+query {
+  book(id : 2) {
+    title
+    year
+  }
+}
+```
+Cette requête devra renvoyer le titre et année de parution du livre dont l'id est 2.
+
+_NB: Utiliser la collection "books" initialisée dans src/db/index.js_
 
 ## Cheat sheet
 
