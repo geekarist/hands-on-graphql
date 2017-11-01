@@ -1,4 +1,9 @@
-const {GraphQLSchema} = require("graphql");
+const {
+  GraphQLInt,
+  GraphQLString,
+  GraphQLObjectType,
+  GraphQLSchema,
+} = require("graphql");
 
 // TODO définir le type User et les resolveurs pour ses attributs
 const UserType;
