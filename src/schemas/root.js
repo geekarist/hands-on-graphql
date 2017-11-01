@@ -1,49 +1,13 @@
-const {
-  GraphQLList,
-  GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLInt,
-  GraphQLNonNull,
-  GraphQLString,
-} = require("graphql");
+const {GraphQLSchema} = require("graphql");
 
-const Author = require("./author/Author");
-const Book = require("./book/Book");
-const authorClient = require("./author/author.client");
+// TODO définir le type User et les resolveurs pour ses attributs
+const UserType;
 
-const QueryType = new GraphQLObjectType({
-  name : "Query",
-  fields : () => ({
-    author : Author,
-    book : Book,
-    allAuthors : {
-      type : new GraphQLList(Author.type),
-      resolve : () => authorClient.getAllAuthors(),
-    }
-  }),
-});
+// TODO définir le type Query et les résolveurs pour ses attributs
+const QueryType;
 
-const MutationType = new GraphQLObjectType({
-  name : "Mutation",
-  fields : () => ({
-    updateAuthorLastName : {
-      type : Author.type,
-      args : {
-        id : {
-          type : new GraphQLNonNull(GraphQLInt),
-        },
-        lastName : {
-          type : new GraphQLNonNull(GraphQLString),
-        },
-      },
-      resolve : (value, {id, lastName}) => {
-        return authorClient.updateAuthorLastName(id, lastName);
-      }
-    }
-  }),
-});
 
-module.exports = new GraphQLSchema({
-  query : QueryType,
-  mutation : MutationType
-});
+// TODO définir le schéma de l'application (contient uniquement les deux ressources query et mutation)
+const rootSchema;
+
+module.exports = rootSchema;

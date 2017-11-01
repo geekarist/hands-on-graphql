@@ -4,7 +4,7 @@
   "description": "Build your first graphQL runtime step by step !",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon $NODE_DEBUG_OPTION server.js --harmony",
+    "watch": "nodemon server.js --harmony",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
