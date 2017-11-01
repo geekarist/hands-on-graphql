@@ -1,13 +1,37 @@
-const {GraphQLSchema} = require("graphql");
+const {
+  GraphQLInt,
+  GraphQLString,
+  GraphQLObjectType,
+  GraphQLSchema,
+} = require("graphql");
 
-// TODO définir le type User et les resolveurs pour ses attributs
-const UserType;
+const UserType = new GraphQLObjectType({
+  name : "User",
+  fields : () => ({
+    id : {
+      type : GraphQLInt,
+      resolve : () => 1,
+    },
+    name : {
+      type : GraphQLString,
+      resolve : () => "Toto",
+    },
+  }),
+});
 
-// TODO définir le type Query et les résolveurs pour ses attributs
-const QueryType;
+const QueryType = new GraphQLObjectType({
+  name : "Query",
+  fields : () => ({
+    user : {
+      type : UserType,
+      resolve : () => "", // pour cet exemple totalement statique, on a juste besoin de retourner quelque chose de non null
+    },
+  }),
+});
 
 
-// TODO définir le schéma de l'application (contient uniquement les deux ressources query et mutation)
-const rootSchema;
+const rootSchema = new GraphQLSchema({
+  query : QueryType,
+});
 
 module.exports = rootSchema;
