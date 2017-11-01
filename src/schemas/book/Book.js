@@ -5,33 +5,19 @@ const {
   GraphQLNonNull,
 } = require("graphql");
 
-const {getBookById} = require("./book.client");
+// TODO définir les arguments de la ressource Book
+const BookArgs;
 
-const BookArgs = {
-  id : {
-    name : "Book id",
-    type : new GraphQLNonNull(GraphQLInt),
-  }
-};
+// TODO définir le type Book, ses attributs et resolveurs
+const BookType;
 
-const BookType = new GraphQLObjectType({
-  name : "Book",
-  fields : () => ({
-    title : {
-      type : GraphQLString,
-      resolve(book){
-        return book.title;
-      }
-    },
-    year : {type : GraphQLInt}, // resolve non spécifié équivaut à l'écriture du dessus (book.year)
-  }),
-});
-
-module.exports = {
+const BookResource ={
   type : BookType,
   args : BookArgs,
   resolve : (_, args) => {
-    return getBookById(args.id);
+    //TODO récupérer la bonne donnée pour les resolveurs du type Book
   },
 };
+
+module.exports = BookResource;
 

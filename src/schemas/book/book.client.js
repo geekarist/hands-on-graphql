@@ -1,10 +1,6 @@
 "use strict";
 const {DB} = require("../../db");
 
-function getBookById(bookId) {
-  return DB.books.findOne({id : bookId});
-}
+// TODO définir la fonction de requête à la collection "books"
 
-module.exports = {
-  getBookById,
-};
+module.exports = {};
