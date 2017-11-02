@@ -1,15 +1,8 @@
 "use strict";
 const {DB} = require("../../db");
 
-function getBookById(bookId) {
-  return DB.books.findOne({id : bookId});
-}
+// TODO récuperer un livre par son id
 
-function getBooksByAuthor(authorId) {
-  return DB.books.find({author_id : authorId});
-}
+// TODO récupérer les livres d'un auteur
 
-module.exports = {
-  getBookById,
-  getBooksByAuthor,
-};
+module.exports = {};
