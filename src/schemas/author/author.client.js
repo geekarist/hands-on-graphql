@@ -13,15 +13,8 @@ function getAuthorByLastName(lastName) {
   return DB.authors.findOne({lastName : lastName});
 }
 
-function updateAuthorLastName(id, newLastName) {
-  let author = DB.authors.findOne({id : id});
-  author.lastName = newLastName;
-  return DB.authors.update(author);
-}
-
 module.exports = {
   getAllAuthors,
   getAuthorById,
   getAuthorByLastName,
-  updateAuthorLastName,
 };

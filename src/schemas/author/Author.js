@@ -3,7 +3,6 @@ const {
   GraphQLInt,
   GraphQLString,
   GraphQLList,
-  GraphQLNonNull,
 } = require("graphql");
 
 const {getAuthorById, getAuthorByLastName} = require("./author.client");
@@ -47,7 +46,9 @@ const AuthorType = new GraphQLObjectType({
     },
     popularity : {
       type : GraphQLInt,
-      resolve : (author, args) => {
+      resolve : (author) => {
+        const authorBooks = getBooksByAuthor(author.id);
+        return authorBooks.reduce((totalLikes, book) => totalLikes += book.likes, 0);
       }
     },
   }),

@@ -25,7 +25,7 @@ const BookType = new GraphQLObjectType({
       likes : {type : GraphQLInt},
       author : {
         type : Author.type,
-        resolve : (book, args, context) => {
+        resolve : (book) => {
           return Author.resolve(null, {id : book.author_id});
         },
       },
