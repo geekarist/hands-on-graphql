@@ -6,10 +6,11 @@ Build your first graphQL runtime step by step !
   - Se renseigner sur la migration REST -> GraphQL, et parler de sa faisabilité, des caveats etc...
 
 ## TODO
- 3. Création exercice depuis la solution:
-    - faire des examples de mutation (post, put, delete)
-    - décider des différentes étapes
-    - création des fichiers de tests pour qu'ils fassent l'exo en TDD ?
+ - faire les dernières questions: cas plus complexe ? --> à minima des mutations
+ - cleaner ce README
+ - refaire une passe sur les README de toutes les branches pour qu'ils soient les mêmes
+ - dernière diapo sur la prez pour donner le lien à ce repo
+ - maybe forker ce repo sur le compte de xebia ? (c'est sur mon compte)
 
 ## Exercice
 
