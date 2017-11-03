@@ -3,10 +3,6 @@ Build your first graphQL runtime step by step !
 
 ## Exercice 3
 
-### IMPORTANT
-- **la correction de l'exercice utilise l'implémentation javascript de [graphql](https://github.com/graphql/graphql-js).**
-- **Afin de pouvoir tester facilement le service graphql tout au long du hands-on, lancer la tâche `npm run watch` et  utiliser [graphiql](https://github.com/graphql/graphiql) à l'url`localhost:4000/graphql`**
-
 ### Référencer une autre ressource
 
 _checkout la branche question-3_
@@ -43,4 +39,25 @@ query {
 }
 ```
 
-_NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
+**Types des ressources**
+ ```
+ type Book {
+   id : Number
+   title : String
+   year : Number
+   author : Author
+ }
+
+ type Author {
+   id : Number
+   firstName : String
+   lastName : String
+   books : [Book]
+   popularity : Number
+ }
+
+ ```
+
+ _NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
+
+ _Solution disponible sur la branche solutions/question-3_
