@@ -9,7 +9,7 @@ function getBooksByAuthor(authorId) {
   return DB.books.find({author_id : authorId});
 }
 
-// TODO : Ajouter un live
+// TODO : Ajouter un livre
 function addBook(bookTitle) {
 }
 
