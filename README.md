@@ -1,27 +1,16 @@
 # hands-on-graphql
 Build your first graphQL runtime step by step !
 
-## Idées (Obvious or not) : 
-  - Juste avant le hands-on, et après la présentation, montrer rapidement comment requeter le serveur et montrer que ça se fait avec une simple requête HTTP
-  - Se renseigner sur la migration REST -> GraphQL, et parler de sa faisabilité, des caveats etc...
-
-## TODO
- - faire les dernières questions: cas plus complexe ? --> à minima des mutations
- - cleaner ce README
- - refaire une passe sur les README de toutes les branches pour qu'ils soient les mêmes
- - dernière diapo sur la prez pour donner le lien à ce repo
- - maybe forker ce repo sur le compte de xebia ? (c'est sur mon compte)
-
-## Exercice
+## Exercice 1
 
 ### IMPORTANT
 - **la correction de l'exercice utilise l'implémentation javascript de [graphql](https://github.com/graphql/graphql-js).**
 - **Afin de pouvoir tester facilement le service graphql tout au long du hands-on, lancer la tâche `npm run watch` et  utiliser [graphiql](https://github.com/graphql/graphiql) à l'url`localhost:4000/graphql`**
 
-### 1.Création d'une ressource simple
-_Checkout la branche question-1._
+### Création d'une ressource simple
+_Checkout la branche master du projet pour cette première question._
 
-**But**: Créer un service graphQL qui répondra à la requête suivante:
+But: Créer un service graphQL qui répondra à la requête suivante:
 ```
 query {
   user {
@@ -41,28 +30,26 @@ et qui donnera la réponse suivante (statique):
  }
 }
 ```
-**Type de la ressource**
+
+Etapes:
+1. Créer le schéma graphql à l'aide de la méthode [GraphQLSchema](http://graphql.org/graphql-js/type/#graphqlschema)
+2. Créer la ressource principale pour les requêtes "GET": Query
+3. Créer la ressource User:
 ```
 type User {
   id : Number
   name : String
 }
 ```
-
-**Etapes:**
-1. Créer le schéma graphql à l'aide de la méthode [GraphQLSchema](http://graphql.org/graphql-js/type/#graphqlschema)
-2. Créer la ressource principale pour les requêtes "GET": Query
-3. Créer la ressource User
-
 Rappel: pour cette question les resolveurs retourneront une valeur en dur dans le code.
 
 _Solution disponible sur la branche solutions/question-1_
 
-### 2.Création d'une ressource dynamique
+## Exercice 2
+
+### Création d'une ressource dynamique
 Pour la suite du hands-on, une base de données in-memory sera utilisée, [lokijs](http://lokijs.org/).
 L'initialisation de deux collections est déjà implémentée et les méthodes utiles pour les manipuler sont diponibles sur la [Documentation de lokijs](https://rawgit.com/techfort/LokiJS/master/jsdoc/Collection.html)
-
-_Checkout la branche question-2_
 
 **But:** Créer un service graphQL qui puisse répondre à cette requête:
 ```
@@ -75,20 +62,11 @@ query {
 ```
 Cette requête devra renvoyer le titre et année de parution du livre dont l'id est 2.
 
-**Types des ressources**
-```
-type Book {
-  id : Number
-  title : String
-  year : Number
-}
-```
-
 _NB: Utiliser la collection "books" initialisée dans src/db/index.js_
 
-_Solution disponible sur la branche solutions/question-2_
+## Exercice 3
 
-### 3. Référencer une autre ressource
+### Référencer une autre ressource
 
 _checkout la branche question-3_
 
@@ -124,29 +102,50 @@ query {
 }
 ```
 
-**Types des ressources**
+_NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
+
+## Exercice 4
+
+### Mutations
+
+_checkout la branche question-4_
+
+**But:** Modifier le service graphQL pour qu'il réponde à ces trois requêtes:
 ```
-type Book {
-  id : Number
-  title : String
-  year : Number
-  author : Author
-}
+// POST - Ajouter un livre en indiquant obligatoirement id, title, author_id et year (Likes automatiquement initialisés à 0 par défaut)
 
-type Author {
-  id : Number
-  firstName : String
-  lastName : String
-  books : [Book]
-  popularity : Number
+mutation {
+  addBook(id : 9, title : "Martine fait du GraphQL", author_id : 1, year : 2017) {
+    id,
+    likes
+  }
 }
+```
+```
+// PUT - Incrémenter le nombre de likes d'un livre en indiquant son titre
 
+mutation {
+  likeBook(title : "Martine fait du GraphQL") {
+    likes
+  }
+}
+```
+```
+// DELETE - Supprimer un livre en indiquant son id
+
+mutation {
+  deleteBook(id : 9) {
+    author {
+      firstName,
+      lastName,
+      books {
+        title
+      }
+    }
+  }
+}
 ```
 
 _NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
 
-_Solution disponible sur la branche solutions/question-3_
-
-## Cheat sheet
-
-![GraphQL Cheat Sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png)
+![Martine](https://img4.hostingpics.net/pics/981922martineGraphQL.jpg)
