@@ -10,7 +10,7 @@ function getBooksByAuthor(authorId) {
 }
 
 // TODO : Ajouter un livre
-function addBook(bookTitle) {
+function addBook(bookId, bookTitle, bookAuthorId, bookYear) {
 }
 
 // TODO : Supprimer un livre
