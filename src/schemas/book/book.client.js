@@ -9,22 +9,26 @@ function getBooksByAuthor(authorId) {
   return DB.books.find({author_id : authorId});
 }
 
-// TODO : Trouver un livre par son titre
-function getBookByTitle(bookTitle) {
+function addBook(bookId, bookTitle, bookAuthorId, bookYear) {
+  return DB.books.insert({id : bookId, title : bookTitle, author_id : bookAuthorId, year : bookYear, likes : 0});
 }
 
-// TODO : Supprimer un livre
 function deleteBook(bookId) {
+  const book = DB.books.findOne({id : bookId});
+  DB.books.remove(book);
+  return book;
 }
 
-// TODO : Ajouter un like à un livre grâce à son titre
 function likeBook(bookTitle) {
+  const book = DB.books.findOne({title : bookTitle});
+  book.likes += 1;
+  return DB.books.update(book);
 }
 
 module.exports = {
   getBookById,
   getBooksByAuthor,
-  getBookByTitle,
+  addBook,
   deleteBook,
   likeBook,
 };

@@ -16,7 +16,7 @@ _checkout la branche question-4_
 // POST - Ajouter un livre en indiquant obligatoirement title, author_id et year (ID générée automatiquement, likes initialisés à 0)
 
 mutation {
-  addBook(title : 'Martine fait du GraphQL', author_id : 1, year : 2017) {
+  addBook(id : 9, title : "Martine fait du GraphQL", author_id : 1, year : 2017) {
     id,
     likes
   }
@@ -26,7 +26,7 @@ mutation {
 // PUT - Incrémenter le nombre de likes d'un livre en indiquant son titre
 
 mutation {
-  likeBook(title : 'Martine fait du GraphQL') {
+  likeBook(title : "Martine fait du GraphQL") {
     likes
   }
 }
@@ -35,9 +35,13 @@ mutation {
 // DELETE - Supprimer un livre en indiquant son id
 
 mutation {
-  deleteBook(id : 1) {
+  deleteBook(id : 9) {
     author {
-      books
+      firstName,
+      lastName,
+      books {
+        title
+      }
     }
   }
 }
