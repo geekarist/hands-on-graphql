@@ -30,17 +30,19 @@ et qui donnera la réponse suivante (statique):
  }
 }
 ```
+**Type de la ressource**
+```
+  type User {
+    id : Number
+    name : String
+  }
+```
 
 Etapes:
 1. Créer le schéma graphql à l'aide de la méthode [GraphQLSchema](http://graphql.org/graphql-js/type/#graphqlschema)
 2. Créer la ressource principale pour les requêtes "GET": Query
-3. Créer la ressource User:
-```
-type User {
-  id : Number
-  name : String
-}
-```
+3. Créer la ressource User
+
 Rappel: pour cette question les resolveurs retourneront une valeur en dur dans le code.
 
 _Solution disponible sur la branche solutions/question-1_
