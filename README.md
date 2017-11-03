@@ -13,7 +13,7 @@ _checkout la branche question-4_
 
 **But:** Modifier le service graphQL pour qu'il réponde à ces trois requêtes:
 ```
-// POST - Ajouter un livre en indiquant obligatoirement title, author_id et year (ID générée automatiquement, likes initialisés à 0)
+// POST - Ajouter un livre en indiquant obligatoirement id, title, author_id et year (Likes automatiquement initialisés à 0 par défaut)
 
 mutation {
   addBook(id : 9, title : "Martine fait du GraphQL", author_id : 1, year : 2017) {
@@ -48,3 +48,5 @@ mutation {
 ```
 
 _NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
+
+![Martine](https://img4.hostingpics.net/pics/981922martineGraphQL.jpg)
