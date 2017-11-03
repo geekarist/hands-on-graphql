@@ -23,6 +23,10 @@ const QueryType = new GraphQLObjectType({
   }),
 });
 
+// TODO : définir le type Mutation et les résolveurs pour ses trois attributs, addBook, likeBook, et deleteBook
+const MutationType;
+
+// TODO : définir la ressource mutation dans le schéma de l'application
 module.exports = new GraphQLSchema({
   query : QueryType
 });
