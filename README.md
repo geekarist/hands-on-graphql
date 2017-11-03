@@ -1,11 +1,11 @@
 # hands-on-graphql
 Build your first graphQL runtime step by step !
 
-## Exercice 1
-
-### IMPORTANT
+## IMPORTANT
 - **la correction de l'exercice utilise l'implémentation javascript de [graphql](https://github.com/graphql/graphql-js).**
 - **Afin de pouvoir tester facilement le service graphql tout au long du hands-on, lancer la tâche `npm run watch` et  utiliser [graphiql](https://github.com/graphql/graphiql) à l'url`localhost:4000/graphql`**
+
+## Exercice 1
 
 ### Création d'une ressource simple
 _Checkout la branche master du projet pour cette première question._
