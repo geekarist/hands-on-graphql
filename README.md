@@ -49,5 +49,4 @@ mutation {
 
 _NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
 
-![Martine]
-(https://img4.hostingpics.net/pics/981922martineGraphQL.jpg)
+![Martine](https://img4.hostingpics.net/pics/981922martineGraphQL.jpg)
