@@ -30,17 +30,19 @@ et qui donnera la réponse suivante (statique):
  }
 }
 ```
+**Type de la ressource**
+```
+  type User {
+    id : Number
+    name : String
+  }
+```
 
 Etapes:
 1. Créer le schéma graphql à l'aide de la méthode [GraphQLSchema](http://graphql.org/graphql-js/type/#graphqlschema)
 2. Créer la ressource principale pour les requêtes "GET": Query
-3. Créer la ressource User:
-```
-type User {
-  id : Number
-  name : String
-}
-```
+3. Créer la ressource User
+
 Rappel: pour cette question les resolveurs retourneront une valeur en dur dans le code.
 
 _Solution disponible sur la branche solutions/question-1_
@@ -62,7 +64,18 @@ query {
 ```
 Cette requête devra renvoyer le titre et année de parution du livre dont l'id est 2.
 
-_NB: Utiliser la collection "books" initialisée dans src/db/index.js_
+**Types de la ressource**
+ ```
+ type Book {
+   id : Number
+   title : String
+   year : Number
+ }
+ ```
+
+ _NB: Utiliser la collection "books" initialisée dans src/db/index.js_
+
+ _Solution disponible sur la branche solutions/question-2_
 
 ## Exercice 3
 
@@ -102,7 +115,28 @@ query {
 }
 ```
 
-_NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
+**Types des ressources**
+ ```
+ type Book {
+   id : Number
+   title : String
+   year : Number
+   author : Author
+ }
+
+ type Author {
+   id : Number
+   firstName : String
+   lastName : String
+   books : [Book]
+   popularity : Number
+ }
+
+ ```
+
+ _NB: Utiliser les collection "books" et "authors" initialisées dans src/db/index.js_
+
+ _Solution disponible sur la branche solutions/question-3_
 
 ## Exercice 4
 
