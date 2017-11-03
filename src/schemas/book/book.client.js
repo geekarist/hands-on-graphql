@@ -9,8 +9,8 @@ function getBooksByAuthor(authorId) {
   return DB.books.find({author_id : authorId});
 }
 
-// TODO : Trouver un livre par son titre
-function getBookByTitle(bookTitle) {
+// TODO : Ajouter un live
+function addBook(bookTitle) {
 }
 
 // TODO : Supprimer un livre
@@ -24,7 +24,7 @@ function likeBook(bookTitle) {
 module.exports = {
   getBookById,
   getBooksByAuthor,
-  getBookByTitle,
+  addBook,
   deleteBook,
   likeBook,
 };
