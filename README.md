@@ -88,7 +88,7 @@ _checkout la branche question-3_
 
 **But:** Créer un service graphQL qui réponde à ces deux requêtes:
 ```
-// le titre, année et autheur (nom, prénom) du livre d'id 2
+// le titre, année, likes et auteur (nom, prénom) du livre d'id 2
 
 query {
   book(id : 2) {
