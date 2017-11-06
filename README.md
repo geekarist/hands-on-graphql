@@ -125,6 +125,7 @@ query {
    title : String
    year : Number
    author : Author
+   likes : Number
  }
 
  type Author {
