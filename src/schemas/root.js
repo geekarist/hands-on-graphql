@@ -5,4 +5,15 @@ const {
 
 // TODO définir le type Query et le schéma du service gql
 
-module.exports = {};
+const Book = require('./book/Book');
+
+const QueryType = new GraphQLObjectType({
+  name: 'Query',
+  fields: () => ({
+    book: Book
+  })
+});
+
+module.exports = new GraphQLSchema({
+  query: QueryType
+});
